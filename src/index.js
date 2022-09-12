@@ -11,7 +11,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/kortoba" element={<Home />} />
-        <Route path="/course/:slug" element={<Course />} />
+        <Route path="/kortoba/course/:slug" element={<Course />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
     </BrowserRouter>
