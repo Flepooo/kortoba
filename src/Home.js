@@ -63,7 +63,7 @@ function Home() {
           .map((item, i) => (
             <div className="news-card" key={i}>
               <Link
-                to={"/course/" + item.title}
+                to={"/kortoba/course/" + item.title}
                 className="news-card__card-link"
               ></Link>
               <img
@@ -77,7 +77,7 @@ function Home() {
                 <div className="news-card__details-wrapper">
                   <p className="news-card__excerpt">{item.discretion}</p>
                   <Link
-                    to={"/course/" + item.title}
+                    to={"/kortoba/course/" + item.title}
                     className="news-card__read-more"
                   >
                     Open Links <i className="fas fa-long-arrow-alt-right"></i>
