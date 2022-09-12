@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/kortoba/static/css/main.e5bf9eb5.css",
-    "main.js": "/kortoba/static/js/main.8bd626a4.js",
+    "main.js": "/kortoba/static/js/main.6256cc06.js",
     "index.html": "/kortoba/index.html",
     "main.e5bf9eb5.css.map": "/kortoba/static/css/main.e5bf9eb5.css.map",
-    "main.8bd626a4.js.map": "/kortoba/static/js/main.8bd626a4.js.map"
+    "main.6256cc06.js.map": "/kortoba/static/js/main.6256cc06.js.map"
   },
   "entrypoints": [
     "static/css/main.e5bf9eb5.css",
-    "static/js/main.8bd626a4.js"
+    "static/js/main.6256cc06.js"
   ]
 }
