@@ -1,30 +1,24 @@
 import "./App.css";
-import sanityClient from "@sanity/client";
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { supabase } from "./supabase.js";
 
 function Course() {
   let { slug } = useParams();
   const [data, setData] = useState([]);
 
-  const client = sanityClient({
-    projectId: "b8o3o28i",
-    dataset: "production",
-    useCdn: true,
-  });
-
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "link"]{
-          title,
-          link,
-          "slug": course->title
-        }`
-      )
-      .then((res) => setData(res))
-      .catch(console.error);
-  });
+    getData();
+    console.log(data);
+  }, []);
+
+  async function getData() {
+    const { data } = await supabase
+      .from("lecture")
+      .select()
+      .eq("course_slug", slug);
+    setData(data);
+  }
 
   return (
     <div className="App">
@@ -33,13 +27,11 @@ function Course() {
       </header>
       <main>
         <p className="title">{slug}</p>
-        {data
-          .filter((item) => item.slug == slug)
-          .map((item, i) => (
-            <a key={i} className="linkA" href={item.link}>
-              {item.title}
-            </a>
-          ))}
+        {data.map((item, i) => (
+          <a key={i} className="linkA" href={item.url}>
+            {item.lec_num}
+          </a>
+        ))}
       </main>
     </div>
   );

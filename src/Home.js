@@ -1,40 +1,21 @@
 import "./App.css";
-import sanityClient from "@sanity/client";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { supabase } from "./supabase.js";
 
 function Home() {
   const [data, setData] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
 
-  const client = sanityClient({
-    projectId: "b8o3o28i",
-    dataset: "production",
-    useCdn: true,
-  });
-
   useEffect(() => {
-    client
-      .fetch(
-        `*[_type == "course"] {
-          title,
-          slug,
-          body,
-          author,
-          mainImage {
-              asset -> {
-                  _id,
-                  url
-              },
-              alt
-          },
-          publishedAt,
-          "categories": categories[]->title
-      }`
-      )
-      .then((res) => setData(res))
-      .catch(console.error);
-  });
+    getData();
+    console.log(data);
+  }, []);
+
+  async function getData() {
+    const { data } = await supabase.from("course").select();
+    setData(data);
+  }
 
   return (
     <div className="App">
@@ -63,7 +44,7 @@ function Home() {
           .map((item, i) => (
             <div className="news-card" key={i}>
               <Link
-                to={"/kortoba/course/" + item.title}
+                to={"/kortoba/course/" + item.slug}
                 className="news-card__card-link"
               ></Link>
               <img
@@ -72,12 +53,12 @@ function Home() {
                 className="news-card__image"
               />
               <div className="news-card__text-wrapper">
-                <h2 className="news-card__title">{item.title}</h2>
-                <div className="news-card__post-date">{item.publishedAt}</div>
+                <h2 className="news-card__title">{item.name}</h2>
+                <div className="news-card__post-date">{item.created_at}</div>
                 <div className="news-card__details-wrapper">
-                  <p className="news-card__excerpt">{item.discretion}</p>
+                  <p className="news-card__excerpt">{item.name}</p>
                   <Link
-                    to={"/kortoba/course/" + item.title}
+                    to={"/kortoba/course/" + item.slug}
                     className="news-card__read-more"
                   >
                     Open Links <i className="fas fa-long-arrow-alt-right"></i>

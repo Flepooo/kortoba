@@ -3,6 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./Home";
 import Course from "./Course";
 import Notfound from "./Notfound";
+import Dashborad from "./dashboard";
 
 export default function App() {
   return (
@@ -11,6 +12,7 @@ export default function App() {
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/kortoba" element={<Home />} />
+        <Route path="/dashboard" element={<Dashborad />} />
         <Route path="/kortoba/course/:slug" element={<Course />} />
         <Route path="*" element={<Notfound />} />
       </Routes>
