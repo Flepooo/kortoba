@@ -20,8 +20,20 @@ const Header: NextPage = () => {
         <span className="mx-5 cursor-pointer">Chemistry</span>
         <span className="mx-5 cursor-pointer">Our Club</span>
       </div>
-      <div className="flex xs:invisible sm:invisible">
-        <span className="mx-5 cursor-pointer">
+      <div className="flex xs:invisible sm:invisible items-center">
+        <input
+          type="search"
+          name="search"
+          placeholder="Search"
+          className="border border-spacing-1 border-gray-400 rounded-lg bg-white w-[250px] h-[35px] mr-10"
+        />
+
+        <span
+          className="mx-5 cursor-pointer"
+          onClick={() => {
+            router.push("/favorite");
+          }}
+        >
           <svg
             width="26"
             height="24"

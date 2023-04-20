@@ -1,7 +1,7 @@
 import type { NextPage } from "next";
 import { useRouter } from "next/router";
 
-const Course: NextPage = () => {
+const Profile: NextPage = () => {
   const router = useRouter();
   return (
     <div className="flex min-h-screen px-10 flex-col pt-[100px]">
@@ -53,4 +53,4 @@ const Course: NextPage = () => {
   );
 };
 
-export default Course;
+export default Profile;
