@@ -3,6 +3,7 @@ import type { AppProps } from "next/app";
 import { Inter } from "@next/font/google";
 import Head from "next/head";
 import Header from "../components/header";
+import { Analytics } from "@vercel/analytics/react";
 
 const poppins = Inter({
   style: ["normal"],
@@ -19,6 +20,7 @@ function MyApp({ Component, pageProps }: AppProps) {
       </Head>
       <Header />
       <Component {...pageProps} />
+      <Analytics />
     </main>
   );
 }
