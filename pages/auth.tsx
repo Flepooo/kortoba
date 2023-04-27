@@ -10,7 +10,7 @@ const Auth: NextPage = () => {
     const { data, error } = await supabase.auth.signInWithOtp({
       email: "mohamedhoshame@gmail.com",
       options: {
-        emailRedirectTo: "http://localhost:3000/",
+        emailRedirectTo: "https://kortoba.vercel.app/",
       },
     });
     if (error) {
