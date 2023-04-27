@@ -22,13 +22,7 @@ const Auth: NextPage = () => {
 
   return (
     <div className="flex min-h-screen flex-col items-center">
-      <div className="flex w-full justify-between p-12">
-        <span className="font-bold text-3xl">Kortoba</span>
-        <div className="flex">
-          <a>Github</a>
-        </div>
-      </div>
-      <div className="h-auto md:border rounded-xl py-8 px-8 sm:px-4">
+      <div className="h-auto md:border rounded-xl py-8 px-8 mt-32 sm:px-4">
         <span className="font-semibold text-xl">Sign In</span>
         <span className="block my-5">
           Welcome back! Please enter your email.
